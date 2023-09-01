@@ -1,0 +1,93 @@
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBudgets (20230901022200)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "budgets" ("uid" varchar, "name" varchar, "last_modified_on" time, "first_month" date, "last_month" date, "date_format" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230901022200"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-01 02:24:26.889864"], ["updated_at", "2023-09-01 02:24:26.889864"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (1.0ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", "inigo"], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:26:03.263387"], ["updated_at", "2023-09-01 02:26:03.263387"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (0.8ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:26:23.812302"], ["updated_at", "2023-09-01 02:26:23.812302"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  [1m[36mBudget Delete All (1.4ms)[0m  [1m[31mDELETE FROM "budgets"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (0.8ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:30:08.711256"], ["updated_at", "2023-09-01 02:30:08.711256"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (0.7ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:30:22.592304"], ["updated_at", "2023-09-01 02:30:22.592304"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  [1m[36mBudget Delete All (1.5ms)[0m  [1m[31mDELETE FROM "budgets"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (0.7ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:31:13.190712"], ["updated_at", "2023-09-01 02:31:13.190712"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (0.8ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:31:19.883278"], ["updated_at", "2023-09-01 02:31:19.883278"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  [1m[36mBudget Delete All (1.8ms)[0m  [1m[31mDELETE FROM "budgets"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Create (1.1ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:32:55.081723"], ["updated_at", "2023-09-01 02:32:55.081723"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" = ? LIMIT ?[0m  [["uid", "hello"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" = ? LIMIT ?[0m  [["uid", "hello"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" = ? LIMIT ?[0m  [["uid", "hel"], ["LIMIT", 1]]
+  [1m[36mBudget Create (0.8ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hel"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:36:11.112034"], ["updated_at", "2023-09-01 02:36:11.112034"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBudget Create (0.5ms)[0m  [1m[32mINSERT INTO "budgets" ("name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:39:44.241826"], ["updated_at", "2023-09-01 02:39:44.241826"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBudget Delete All (2.1ms)[0m  [1m[31mDELETE FROM "budgets"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBudget Create (0.5ms)[0m  [1m[32mINSERT INTO "budgets" ("name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:42:38.869361"], ["updated_at", "2023-09-01 02:42:38.869361"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mBudget Delete All (2.7ms)[0m  [1m[31mDELETE FROM "budgets"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" = ? LIMIT ?[0m  [["uid", "hello"], ["LIMIT", 1]]
+  [1m[36mBudget Create (0.4ms)[0m  [1m[32mINSERT INTO "budgets" ("uid", "name", "last_modified_on", "first_month", "last_month", "date_format", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "hello"], ["name", nil], ["last_modified_on", nil], ["first_month", nil], ["last_month", nil], ["date_format", nil], ["created_at", "2023-09-01 02:45:23.200914"], ["updated_at", "2023-09-01 02:45:23.200914"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBudget Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "budgets" WHERE "budgets"."uid" = ? LIMIT ?[0m  [["uid", "hello"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
