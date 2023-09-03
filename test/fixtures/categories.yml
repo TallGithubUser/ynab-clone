@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  name: MyString
+  hidden: false
+  note: MyString
+  budgeted: 1
+  activity: 1
+  balance: 1
+  goal_type: MyString
+  goal_day: 1
+  goal_cadence: 1
+  goal_cadence_frequency: 1
+  goal_creation_month: 2023-09-03
+  goal_target: 1
+  goal_target_month: 2023-09-03
+  goal_percentage_complete: 1
+  goal_months_to_budget: 1
+  goal_overall_funded: 1
+  goal_overall_left: 1
+  deleted: false
+
+two:
+  uid: MyString
+  name: MyString
+  hidden: false
+  note: MyString
+  budgeted: 1
+  activity: 1
+  balance: 1
+  goal_type: MyString
+  goal_day: 1
+  goal_cadence: 1
+  goal_cadence_frequency: 1
+  goal_creation_month: 2023-09-03
+  goal_target: 1
+  goal_target_month: 2023-09-03
+  goal_percentage_complete: 1
+  goal_months_to_budget: 1
+  goal_overall_funded: 1
+  goal_overall_left: 1
+  deleted: false
