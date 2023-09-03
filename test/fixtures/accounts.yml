@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  name: MyString
+  type: 
+  on_budget: false
+  closed: false
+  note: MyString
+  balance: 1
+  cleared_balance: 1
+  uncleared_balance: 1
+  transfer_payee_id: MyString
+  direct_import_linked: false
+  last_reconciled_at: 2023-09-03 11:06:33
+  deleted: false
+
+two:
+  uid: MyString
+  name: MyString
+  type: 
+  on_budget: false
+  closed: false
+  note: MyString
+  balance: 1
+  cleared_balance: 1
+  uncleared_balance: 1
+  transfer_payee_id: MyString
+  direct_import_linked: false
+  last_reconciled_at: 2023-09-03 11:06:33
+  deleted: false
