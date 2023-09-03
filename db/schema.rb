@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_162922) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_163632) do
   create_table "accounts", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -73,8 +73,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_162922) do
     t.boolean "deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "budget_id", null: false
+    t.index ["budget_id"], name: "index_category_groups_on_budget_id"
+  end
+
+  create_table "payees", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.string "transfer_account_id"
+    t.boolean "deleted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "budget_id", null: false
+    t.index ["budget_id"], name: "index_payees_on_budget_id"
   end
 
   add_foreign_key "accounts", "budgets"
   add_foreign_key "categories", "category_groups"
+  add_foreign_key "category_groups", "budgets"
+  add_foreign_key "payees", "budgets"
 end
