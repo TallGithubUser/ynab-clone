@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_163632) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_164044) do
   create_table "accounts", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -77,6 +77,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_163632) do
     t.index ["budget_id"], name: "index_category_groups_on_budget_id"
   end
 
+  create_table "payee_locations", force: :cascade do |t|
+    t.string "uid"
+    t.string "latitude"
+    t.string "longitude"
+    t.boolean "deleted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "payees", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -85,11 +94,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_163632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "budget_id", null: false
+    t.integer "payee_location_id", null: false
     t.index ["budget_id"], name: "index_payees_on_budget_id"
+    t.index ["payee_location_id"], name: "index_payees_on_payee_location_id"
   end
 
   add_foreign_key "accounts", "budgets"
   add_foreign_key "categories", "category_groups"
   add_foreign_key "category_groups", "budgets"
   add_foreign_key "payees", "budgets"
+  add_foreign_key "payees", "payee_locations"
 end
