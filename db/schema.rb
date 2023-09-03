@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_164237) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_165025) do
   create_table "accounts", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -101,10 +101,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_164237) do
     t.index ["payee_location_id"], name: "index_payees_on_payee_location_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string "uid"
+    t.date "date"
+    t.integer "amount"
+    t.string "memo"
+    t.string "cleared"
+    t.boolean "approved"
+    t.string "flag_color"
+    t.boolean "deleted"
+    t.string "debt_transaction_type"
+    t.string "import_id"
+    t.string "matched_transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "payee_id", null: false
+    t.integer "account_id", null: false
+    t.integer "category_id", null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["category_id"], name: "index_transactions_on_category_id"
+    t.index ["payee_id"], name: "index_transactions_on_payee_id"
+  end
+
   add_foreign_key "accounts", "budgets"
   add_foreign_key "categories", "category_groups"
   add_foreign_key "category_groups", "budgets"
   add_foreign_key "payee_locations", "budgets"
   add_foreign_key "payees", "budgets"
   add_foreign_key "payees", "payee_locations"
+  add_foreign_key "transactions", "accounts"
+  add_foreign_key "transactions", "categories"
+  add_foreign_key "transactions", "payees"
 end
