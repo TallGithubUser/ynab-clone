@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  name: MyString
+  last_modified_on: 2023-09-03 11:03:45
+  first_month: 2023-09-03
+  last_month: 2023-09-03
+
+two:
+  uid: MyString
+  name: MyString
+  last_modified_on: 2023-09-03 11:03:45
+  first_month: 2023-09-03
+  last_month: 2023-09-03
