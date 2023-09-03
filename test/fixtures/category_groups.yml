@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  hidden: false
+  deleted: false
+
+two:
+  uid: MyString
+  hidden: false
+  deleted: false
