@@ -5,8 +5,16 @@ class BudgetController < ApplicationController
 	end
 
 	def default_budget_view
-		default_budget_id = Budget.all.order(:last_modified_on)[-1].uid
-		redirect_to "/#{default_budget_id}/budget"
+		all_budgets = Budget.all
+		if all_budgets.length == 0
+			redirect_to "/no-budgets-found/"
+		else 
+			default_budget_id = all_budgets.order(:last_modified_on)[-1].uid
+			redirect_to "/#{default_budget_id}/budget"	
+		end
+	end
+
+	def no_budgets_found	
 	end
 
 end
