@@ -1,0 +1,5 @@
+<ul> 
+	<% @sanitized.each do |t| %>
+		<li> <%= t[:account_name]%>, <%= t[:date]%>, <%= t[:payee]%>, <%= t[:category_group]%>, <%= t[:memo]%>, <%= t[:outflow]%>, <%= t[:inflow]%>  </li>
+	<% end %>
+</ul

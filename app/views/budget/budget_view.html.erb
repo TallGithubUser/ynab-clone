@@ -1,5 +1,15 @@
 <ul> 
-	<% @accounts.each do |account| %>
-		<li> <%= account.name %> </li>
+	<% @category_groups.each do |category_group| %>
+		<% if not category_group.hidden and not category_group.deleted%>
+			<li> <b> <%= category_group.name %> </b> </li>
+
+			<ul> 
+				<% category_group.categories.each do |category|%>
+					<% if not category.hidden and not category.deleted %>
+						<li> <%= category.name %> - <%= category.balance / 1000.0 %> </li>
+					<% end %>
+				<% end %>
+			</ul>
+		<% end %>
 	<% end %>
 </ul
