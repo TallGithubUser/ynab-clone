@@ -7,7 +7,7 @@ budgets.each do |budget|
   b = Budget.new(
   	uid: budget.id, 
   	name: budget.name,
-  	last_modified_on: budget.last_modified_on,
+  	last_modified_on: budget.last_modified_on.to_time,
   	first_month: budget.first_month,
   	last_month: budget.last_month
   )
@@ -108,6 +108,7 @@ budgets.each do |budget|
 
   # Seed the transactions
   puts "Seeding transactions..."
+  # require 'pry'; binding.pry
   transactions.each do |transaction|
   	payee_obj = Payee.find_by(uid: transaction.payee_id)
   	payee_name = ""
@@ -129,13 +130,10 @@ budgets.each do |budget|
   		payee: Payee.find_by(uid: transaction.payee_id),
   		category: Category.find_by(uid: transaction.category_id),
   		account: Account.find_by(uid: transaction.account_id),
-  		import_id: transactino.import_id, 
+  		import_id: transaction.import_id, 
   		matched_transaction_id: transaction.matched_transaction_id,
-  		budget: b,
+  		budget: Budget.find_by(uid: budget.id),
   	)
-  	
-  	puts "#{payee_name}"
-
   	t.save
   end
   puts "Done seeding transactions."
