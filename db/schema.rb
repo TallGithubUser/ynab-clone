@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_022919) do
   create_table "accounts", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
   create_table "budgets", force: :cascade do |t|
     t.string "uid"
     t.string "name"
-    t.time "last_modified_on"
+    t.datetime "last_modified_on", precision: nil
     t.date "first_month"
     t.date "last_month"
     t.datetime "created_at", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "budget_id", null: false
+    t.string "name"
     t.index ["budget_id"], name: "index_category_groups_on_budget_id"
   end
 
@@ -96,9 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "budget_id", null: false
-    t.integer "payee_location_id", null: false
     t.index ["budget_id"], name: "index_payees_on_budget_id"
-    t.index ["payee_location_id"], name: "index_payees_on_payee_location_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -117,8 +116,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
     t.datetime "updated_at", null: false
     t.integer "payee_id", null: false
     t.integer "account_id", null: false
-    t.integer "category_id", null: false
     t.integer "budget_id", null: false
+    t.integer "category_id"
     t.index ["account_id"], name: "index_transactions_on_account_id"
     t.index ["budget_id"], name: "index_transactions_on_budget_id"
     t.index ["category_id"], name: "index_transactions_on_category_id"
@@ -130,7 +129,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_171457) do
   add_foreign_key "category_groups", "budgets"
   add_foreign_key "payee_locations", "budgets"
   add_foreign_key "payees", "budgets"
-  add_foreign_key "payees", "payee_locations"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "budgets"
   add_foreign_key "transactions", "categories"
