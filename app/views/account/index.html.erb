@@ -6,6 +6,8 @@
 
 <ul>
 	<% @accounts.each do |account| %>
-		<li> <%= link_to account.name, account_path(account.budget.uid, account) %> </li>
+		<% if not account.deleted %>
+			<li> <%= link_to account.name, account_path(account.budget.uid, account) %> </li>
+		<% end %>
 	<%end%>
 </ul>

@@ -37,8 +37,9 @@ class AccountController < ApplicationController
 	end
 
 	def index
-		last_100_transactions = Budget.find_by(uid:params[:budget_id]).transactions.reverse[0..100]
-		@accounts = Account.all
+		budget = Budget.find_by(uid:params[:budget_id])
+		last_100_transactions = budget.transactions.reverse[0..100]
+		@accounts = budget.accounts.order(:name)
 		@transactions = sanitize_transactions(last_100_transactions)
 	end
 
