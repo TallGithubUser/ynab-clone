@@ -1,3 +1,10 @@
+<ul> 
+	<% Budget.all.each do |budget| %>
+		<li> <%= link_to budget.name, "/#{budget.uid}/budget" %> </li>
+	<% end %>
+</ul>
+
+
 <h1> <%= @budget.name %> </h1>
 <ul> 
 	<% @category_groups.each do |category_group| %>
