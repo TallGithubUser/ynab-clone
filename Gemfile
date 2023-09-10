@@ -22,6 +22,8 @@ gem "importmap-rails"
 
 gem "pry"
 
+gem "pry-nav"
+
 gem "dotenv-rails", ">= 2.8.1"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]

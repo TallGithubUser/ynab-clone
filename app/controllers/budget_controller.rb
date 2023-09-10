@@ -1,7 +1,7 @@
 class BudgetController < ApplicationController
-	def budget_view 
-		budget_id = params[:uid]
-		@category_groups = Budget.find_by(uid: budget_id).category_groups.order(:name)
+	def index 
+		@budget = Budget.find_by(uid: params[:budget_id])
+		@category_groups = @budget.category_groups.order(:name)
 	end
 
 	def default_budget_view

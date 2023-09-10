@@ -1,0 +1,11 @@
+<ul> 
+	<% @transactions.each do |t| %>
+		<li> <%= t[:account_name]%>, <%= t[:date]%>, <%= t[:payee]%>, <%= t[:category_group]%>, <%= t[:memo]%>, <%= t[:outflow]%>, <%= t[:inflow]%>  </li>
+	<% end %>
+</ul>
+
+<ul>
+	<% @accounts.each do |account| %>
+		<li> <%= link_to account.name, account_path(account.budget.uid, account) %> </li>
+	<%end%>
+</ul>

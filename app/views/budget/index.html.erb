@@ -1,3 +1,4 @@
+<h1> <%= @budget.name %> </h1>
 <ul> 
 	<% @category_groups.each do |category_group| %>
 		<% if not category_group.hidden and not category_group.deleted%>
@@ -12,4 +13,6 @@
 			</ul>
 		<% end %>
 	<% end %>
-</ul
+</ul>
+
+<p> <%= link_to "Go to accounts", "/#{@budget.uid}/account" %> </p>

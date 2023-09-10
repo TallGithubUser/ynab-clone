@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "budget#default_budget_view"
 
-  # Account view
-  get "/:uid/accounts", to: "account#account_view"
-  
+  scope ':budget_id' do
+    resources :account
+  end
+
+  scope ':budget_id' do
+    resources :budget
+  end
+
   # Budget view
-  get "/:uid/budget", to: "budget#budget_view"
   get "no-budgets-found", to: "budget#no_budgets_found"
 end
