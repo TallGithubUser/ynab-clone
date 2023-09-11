@@ -1,3 +1,22 @@
+<%= form_with model: @new_transaction do |form| %>
+	<%= form.label :amount %>
+	<%= form.number_field :amount, step: '.01' %> <br>
+	
+	<%= form.label :memo %> 
+	<%= form.text_field :memo %> <br>
+
+	<%= form.label :cleared %>
+	<%= form.check_box :cleared %> <br>
+
+	<%= form.select :account, @accounts_with_uid %> <br>
+
+	<%= form.select :payee, @payees_with_uid %> <br>
+
+	<%= form.select :category, @categories_with_uid %> <br>
+
+	<%= form.submit %>
+<% end %>
+
 <ul> 
 	<% @transactions.each do |t| %>
 		<li> <%= t[:account_name]%>, <%= t[:date]%>, <%= t[:payee]%>, <%= t[:category_group]%>, <%= t[:memo]%>, <%= t[:outflow]%>, <%= t[:inflow]%>  </li>
