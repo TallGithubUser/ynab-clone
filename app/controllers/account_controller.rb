@@ -44,9 +44,9 @@ class AccountController < ApplicationController
 		open_accounts = Account.all.select{|account| account.budget == budget and account.closed == false}
 		available_categories = Category.all.reject{|category| category.category_group.budget != budget}
 
-		@categories_with_uid = available_categories.map{|category| [category.name, category.uid]}
-		@payees_with_uid = last_20_payees.map{|payee| [payee.name, payee.uid]}
-		@accounts_with_uid = open_accounts.map{|account| [account.name, account.uid]}
+		@categories_with_id = available_categories.map{|category| [category.name, category.id]}
+		@payees_with_id = last_20_payees.map{|payee| [payee.name, payee.id]}
+		@accounts_with_id = open_accounts.map{|account| [account.name, account.id]}
 		@accounts = budget.accounts.order(:name)
 		@transactions = sanitize_transactions(last_100_transactions)
 	end
@@ -61,22 +61,26 @@ class AccountController < ApplicationController
 	end
 
 	def create
-		t = Transaction.new(
-			uid: SecureRandom.uuid,
-	  		date: Date.today,
-	  		amount: (params[:amount].to_f*1000).floor,
-	  		memo: params[:memo],
-	  		cleared: params[:cleared] == '1' ? "cleared" : "uncleared",
-	  		approved: true,
-	  		deleted: false,
-	  		payee: Payee.find_by(uid: params[:payee]),
-	  		category: Category.find_by(uid: params["category"]),
-	  		account: Account.find_by(uid: params["account"]),
-	  		budget: Budget.find_by(uid: params["budget_id"])
-	  	)
-	  	
+		t = Transaction.new (
+			transaction_params
+		)
+
+		t.update ({
+			uid: SecureRandom.uuid, 
+			amount: (params[:amount].to_f*1000).floor,
+			approved: true, 
+			deleted: false, 
+			budget: Budget.find_by(uid: params["budget_id"]), 
+			date: Date.current
+		})
+
 	  	if t.save
 			redirect_to "/#{params["budget_id"]}/account"	
 		end
   	end
+
+  	private 
+  		def transaction_params 
+  			params.permit(:memo, :cleared, :payee_id, :category_id, :account_id)
+  		end
 end

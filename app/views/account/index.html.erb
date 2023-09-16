@@ -8,11 +8,11 @@
 	<%= form.label :cleared %>
 	<%= form.check_box :cleared %> <br>
 
-	<%= form.select :account, @accounts_with_uid %> <br>
+	<%= form.select :account_id, @accounts_with_id %> <br>
 
-	<%= form.select :payee, @payees_with_uid %> <br>
+	<%= form.select :payee_id, @payees_with_id %> <br>
 
-	<%= form.select :category, @categories_with_uid %> <br>
+	<%= form.select :category_id, @categories_with_id %> <br>
 
 	<%= form.submit %>
 <% end %>
