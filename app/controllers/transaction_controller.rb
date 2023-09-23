@@ -21,7 +21,6 @@ class TransactionController < ApplicationController
 	end
 
 	def new
-		binding.pry
 		@new_transaction = Transaction.new
 	end
 

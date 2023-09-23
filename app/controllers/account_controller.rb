@@ -2,17 +2,7 @@ class AccountController < ApplicationController
 	include ApplicationHelper
 	def index
 		budget = Budget.find_by(uid:params[:budget_id])
-		last_100_transactions = budget.transactions.reverse[0..100]
-		last_20_payees = Payee.all.reverse[0..20]
-
-		open_accounts = Account.all.select{|account| account.budget == budget and account.closed == false}
-		available_categories = Category.all.reject{|category| category.category_group.budget != budget}
-
-		@categories_with_id = available_categories.map{|category| [category.name, category.id]}
-		@payees_with_id = last_20_payees.map{|payee| [payee.name, payee.id]}
-		@accounts_with_id = open_accounts.map{|account| [account.name, account.id]}
 		@accounts = budget.accounts.order(:name)
-		@transactions = sanitize_transactions(last_100_transactions)
 	end
 
 	def show
