@@ -1,4 +1,4 @@
-class AccountController < ApplicationController
+class TransactionController < ApplicationController
 	def sanitize_transactions(transactions)
 		sanitized = []
 		transactions.each do |transaction|
@@ -57,6 +57,7 @@ class AccountController < ApplicationController
 	end
 
 	def new
+		binding.pry
 		@new_transaction = Transaction.new
 	end
 
@@ -75,7 +76,12 @@ class AccountController < ApplicationController
 		})
 
 	  	if t.save
-			redirect_to "/#{params["budget_id"]}/account"	
+			redirect_to "/#{params["budget_id"]}/transaction"	
 		end
   	end
+
+  	private 
+		def transaction_params 
+			params.permit(:memo, :cleared, :payee_id, :category_id, :account_id)
+		end
 end

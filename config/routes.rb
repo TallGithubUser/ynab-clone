@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :budget
   end
 
+  scope ':budget_id' do 
+    resources :transaction
+  end
+
   # Budget view
   get "no-budgets-found", to: "budget#no_budgets_found"
+
+  get "transaction", to: "transaction#index"
 end
